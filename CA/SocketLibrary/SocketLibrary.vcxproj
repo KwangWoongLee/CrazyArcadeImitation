@@ -143,19 +143,19 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="SocketPch.cpp" />
     <ClCompile Include="SocketAddress.cpp" />
     <ClCompile Include="SocketAddressFactory.cpp" />
+    <ClCompile Include="SocketPch.cpp" />
     <ClCompile Include="SocketUtil.cpp" />
     <ClCompile Include="StringUtils.cpp" />
     <ClCompile Include="TCPSocket.cpp" />
     <ClCompile Include="UDPSocket.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="SocketPch.h" />
     <ClInclude Include="SocketShared.h" />
     <ClInclude Include="SocketAddress.h" />
     <ClInclude Include="SocketAddressFactory.h" />
+    <ClInclude Include="SocketPch.h" />
     <ClInclude Include="SocketUtil.h" />
     <ClInclude Include="StringUtils.h" />
     <ClInclude Include="TCPSocket.h" />
