@@ -1,2 +1,0 @@
-C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Debug\SocketLibrary.pdb
-C:\git\KwangWoongLee\CrazyArcadeImitation\CA\SocketLibrary\Debug\SocketLibrary.pdb

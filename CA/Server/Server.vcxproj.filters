@@ -14,7 +14,7 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="헤더 파일\essential">
-      <UniqueIdentifier>{77361115-6bb9-4423-89a3-1c16ec06fcdc}</UniqueIdentifier>
+      <UniqueIdentifier>{c5b4ae65-5522-485d-807c-77eebae280e9}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,9 +31,6 @@
       <Filter>헤더 파일\essential</Filter>
     </ClInclude>
     <ClInclude Include="ServerPch.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="ServerShared.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
   </ItemGroup>

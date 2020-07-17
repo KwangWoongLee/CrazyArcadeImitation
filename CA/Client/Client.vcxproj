@@ -90,11 +90,13 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>ClientPch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\git\KwangWoongLee\CrazyArcadeImitation\CA\SocketLibrary\Debug;C:\git\KwangWoongLee\CrazyArcadeImitation\CA\SerializationLibrary\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Debug;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Common.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -107,13 +109,15 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>ClientPch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\git\KwangWoongLee\CrazyArcadeImitation\CA\SocketLibrary\Debug;C:\git\KwangWoongLee\CrazyArcadeImitation\CA\SerializationLibrary\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Debug;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Common.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -124,11 +128,13 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>ClientPch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\git\KwangWoongLee\CrazyArcadeImitation\CA\SocketLibrary\Debug;C:\git\KwangWoongLee\CrazyArcadeImitation\CA\SerializationLibrary\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Debug;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Common.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
@@ -141,13 +147,15 @@
       <ConformanceMode>true</ConformanceMode>
       <PrecompiledHeader>Use</PrecompiledHeader>
       <PrecompiledHeaderFile>ClientPch.h</PrecompiledHeaderFile>
-      <AdditionalIncludeDirectories>C:\git\KwangWoongLee\CrazyArcadeImitation\CA\SocketLibrary\Debug;C:\git\KwangWoongLee\CrazyArcadeImitation\CA\SerializationLibrary\Debug;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalIncludeDirectories>C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <AdditionalLibraryDirectories>C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Debug;</AdditionalLibraryDirectories>
+      <AdditionalDependencies>Common.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
@@ -175,11 +183,8 @@
     <Image Include="small.ico" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\SerializationLibrary\SerializationLibrary.vcxproj">
-      <Project>{0d95c338-e9f8-43f3-95a1-4676f2d84434}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\SocketLibrary\SocketLibrary.vcxproj">
-      <Project>{55f2c92e-6e1d-44e8-904e-4c16cb582a84}</Project>
+    <ProjectReference Include="..\Common\Common.vcxproj">
+      <Project>{fd529ae3-31f1-43f7-b321-0b0f4da8d9da}</Project>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

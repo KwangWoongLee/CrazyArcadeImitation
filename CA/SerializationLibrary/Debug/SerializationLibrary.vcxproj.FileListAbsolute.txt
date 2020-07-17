@@ -1,2 +1,0 @@
-C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Debug\SerializationLibrary.pdb
-C:\git\KwangWoongLee\CrazyArcadeImitation\CA\SerializationLibrary\Debug\SerializationLibrary.pdb
