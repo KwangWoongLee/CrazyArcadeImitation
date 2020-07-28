@@ -1,3 +1,11 @@
-#include "GameShared.h"
-#include "framework.h"
-#include "Server.h"
+#include <GameShared.h>
+
+#include <ReplicationManagerServer.h>
+
+#include <ClientProxy.h>
+
+#include <NetworkManagerServer.h>
+#include <Server.h>
+
+
+#include <PlayerServer.h>

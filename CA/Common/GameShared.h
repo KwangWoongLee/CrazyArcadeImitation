@@ -29,8 +29,11 @@ using std::unordered_map;
 using std::string;
 using std::unordered_set;
 
-//class RoboCat;
-//class GameObject;
+class Player;
+class GameObject;
+
+#include "ServerMath.h"
+
 #include "StringUtils.h"
 #include "SocketAddress.h"
 #include "SocketAddressFactory.h"
@@ -44,28 +47,21 @@ using std::unordered_set;
 #include "MemoryBitStream.h"
 
 
+#include "InputAction.h"
+#include "InputState.h"
+#include "Move.h"
+#include "MoveList.h"
 
-//#include "TransmissionData.h"
-//#include "InFlightPacket.h"
-//#include "AckRange.h"
-//#include "DeliveryNotificationManager.h"
 
-//#include "InputAction.h"
-//#include "InputState.h"
-//#include "Move.h"
-//#include "MoveList.h"
+#include "GameObject.h"
+#include "GameObjectRegistry.h"
+#include "Player.h"
+#include "World.h"
+#include "Timing.h"
+#include "StringUtils.h"
+#include "ScoreBoardManager.h"
 
-//#include "GameObject.h"
-//#include "GameObjectRegistry.h"
-//#include "RoboCat.h"
-//#include "World.h"
-//#include "Timing.h"
-//#include "Mouse.h"
-//#include "Yarn.h"
-//#include "StringUtils.h"
-//#include "ScoreBoardManager.h"
-//
-////#include "WeightedTimedMovingAverage.h"
-//#include "ReplicationCommand.h"
-//#include "NetworkManager.h"
+#include "WeightedTimedMovingAverage.h"
+#include "ReplicationCommand.h"
+#include "NetworkManager.h"
 #include "Engine.h"

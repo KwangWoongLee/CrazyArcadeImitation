@@ -1,17 +1,75 @@
-﻿// Client.cpp : 애플리케이션에 대한 진입점을 정의합니다.
-//
+﻿
+#include <ClientPch.h>
 
-#include "ClientPch.h"
-
-
-int APIENTRY wWinMain(_In_ HINSTANCE hInstance,
-                     _In_opt_ HINSTANCE hPrevInstance,
-                     _In_ LPWSTR    lpCmdLine,
-                     _In_ int       nCmdShow)
+bool Client::StaticInit()
 {
-    UNREFERENCED_PARAMETER(hPrevInstance);
-    UNREFERENCED_PARAMETER(lpCmdLine);
+	// Create the Client pointer first because it initializes SDL
+	Client* client = new Client();
 
-    // TODO: 여기에 코드를 입력합니다.
+	if (WindowManager::StaticInit() == false)
+	{
+		return false;
+	}
 
+	//if (GraphicsDriver::StaticInit(WindowManager::sInstance->GetMainWindow()) == false)
+	//{
+	//	return false;
+	//}
+
+	//TextureManager::StaticInit();
+	//RenderManager::StaticInit();
+	InputManager::StaticInit();
+
+	//HUD::StaticInit();
+
+	sInstance.reset(client);
+
+	return true;
 }
+
+Client::Client()
+{
+	GameObjectRegistry::sInstance->RegisterCreationFunction('PLAY', PlayerClient::StaticCreate);
+
+	//string destination = StringUtils::GetCommandLineArg(1);
+	//string name = StringUtils::GetCommandLineArg(2);
+	string destination = "127.0.0.1:45000";
+	string name = "A";
+
+	SocketAddressPtr serverAddress = SocketAddressFactory::CreateIPv4FromString(destination);
+
+	NetworkManagerClient::StaticInit(*serverAddress, name);
+
+	NetworkManagerClient::sInstance->SetSimulatedLatency(0.0f);
+}
+
+
+
+void Client::DoFrame()
+{
+	InputManager::sInstance->Update();
+
+	Engine::DoFrame();
+
+	NetworkManagerClient::sInstance->ProcessIncomingPackets();
+
+	//RenderManager::sInstance->Render();
+
+	NetworkManagerClient::sInstance->SendOutgoingPackets();
+}
+
+void Client::HandleEvent(SDL_Event* inEvent)
+{
+	switch (inEvent->type)
+	{
+	case SDL_KEYDOWN:
+		InputManager::sInstance->HandleInput(EIA_Pressed, inEvent->key.keysym.sym);
+		break;
+	case SDL_KEYUP:
+		InputManager::sInstance->HandleInput(EIA_Released, inEvent->key.keysym.sym);
+		break;
+	default:
+		break;
+	}
+}
+
