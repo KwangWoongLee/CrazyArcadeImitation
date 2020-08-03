@@ -102,11 +102,11 @@ const Move& InputManager::SampleInputAsMove()
 bool InputManager::IsTimeToSampleInput()
 {
 	float time = Timing::sInstance.GetFrameStartTime();
-	//if (time > mNextTimeToSampleInput)
-	//{
-	//	mNextTimeToSampleInput = mNextTimeToSampleInput + kTimeBetweenInputSamples;
-	//	return true;
-	//}
+	if (time > mNextTimeToSampleInput)
+	{
+		mNextTimeToSampleInput = mNextTimeToSampleInput + kTimeBetweenInputSamples;
+		return true;
+	}
 
 	return false;
 }

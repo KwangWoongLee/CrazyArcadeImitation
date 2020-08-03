@@ -121,7 +121,7 @@ bool ScoreBoardManager::Entry::Write(OutputMemoryBitStream& inOutputStream) cons
 	//inOutputStream.Write(mColor);
 	inOutputStream.Write(mPlayerId);
 	inOutputStream.Write(mPlayerName);
-	inOutputStream.Write(mScore);
+	//inOutputStream.Write(mScore);
 
 	return didSucceed;
 }

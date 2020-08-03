@@ -6,8 +6,8 @@ PlayerClient::PlayerClient() :
 	mTimeLocationBecameOutOfSync(0.f),
 	mTimeVelocityBecameOutOfSync(0.f)
 {
-	//mSpriteComponent.reset(new SpriteComponent(this));
-	//mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("cat"));
+	mSpriteComponent.reset(new SpriteComponent(this));
+	mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("Player"));
 }
 
 
@@ -74,7 +74,7 @@ void PlayerClient::Read(InputMemoryBitStream& inInputStream)
 	if (stateBit)
 	{
 		Vector3 color;
-		//inInputStream.Read(color);
+		inInputStream.Read(color);
 		SetColor(color);
 		readState |= ECRS_Color;
 	}

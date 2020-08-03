@@ -11,13 +11,13 @@ bool Client::StaticInit()
 		return false;
 	}
 
-	//if (GraphicsDriver::StaticInit(WindowManager::sInstance->GetMainWindow()) == false)
-	//{
-	//	return false;
-	//}
+	if (GraphicsDriver::StaticInit(WindowManager::sInstance->GetMainWindow()) == false)
+	{
+		return false;
+	}
 
-	//TextureManager::StaticInit();
-	//RenderManager::StaticInit();
+	TextureManager::StaticInit();
+	RenderManager::StaticInit();
 	InputManager::StaticInit();
 
 	//HUD::StaticInit();
@@ -53,7 +53,7 @@ void Client::DoFrame()
 
 	NetworkManagerClient::sInstance->ProcessIncomingPackets();
 
-	//RenderManager::sInstance->Render();
+	RenderManager::sInstance->Render();
 
 	NetworkManagerClient::sInstance->SendOutgoingPackets();
 }

@@ -118,3 +118,17 @@ void InputMemoryBitStream::ReadBits(void* outData, uint32_t inBitCount)
 		ReadBits(*destByte, inBitCount);
 	}
 }
+
+void OutputMemoryBitStream::Write(const Vector3& inVector)
+{
+	Write(inVector.mX);
+	Write(inVector.mY);
+	Write(inVector.mZ);
+}
+
+void InputMemoryBitStream::Read(Vector3& outVector)
+{
+	Read(outVector.mX);
+	Read(outVector.mY);
+	Read(outVector.mZ);
+}

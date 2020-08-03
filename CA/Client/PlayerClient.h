@@ -15,5 +15,5 @@ private:
 	float				mTimeLocationBecameOutOfSync;
 	float				mTimeVelocityBecameOutOfSync;
 
-	//SpriteComponentPtr	mSpriteComponent;
+	SpriteComponentPtr	mSpriteComponent;
 };

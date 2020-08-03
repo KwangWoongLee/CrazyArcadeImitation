@@ -25,7 +25,6 @@ void OutputMemoryStream::Write(const void* inData,
 	mHead = resultHead;
 }
 
-
 void InputMemoryStream::Read(void* outData,
 	uint32_t inByteCount)
 {
@@ -38,5 +37,5 @@ void InputMemoryStream::Read(void* outData,
 
 	std::memcpy(outData, mBuffer + mHead, inByteCount);
 
-	mHead = resultHead;
+	mHead = resultHead;		
 }

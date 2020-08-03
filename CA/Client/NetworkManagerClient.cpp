@@ -108,10 +108,10 @@ void NetworkManagerClient::HandleStatePacket(InputMemoryBitStream& inInputStream
 
 		//old
 		//HandleGameObjectState( inPacketBuffer );
-		HandleScoreBoardState(inInputStream);
+		//HandleScoreBoardState(inInputStream);
 
 		//tell the replication manager to handle the rest...
-		//mReplicationManagerClient.Read(inInputStream);
+		mReplicationManagerClient.Read(inInputStream);
 	}
 }
 
@@ -205,8 +205,15 @@ void NetworkManagerClient::UpdateSendingInputPacket()
 void NetworkManagerClient::SendInputPacket()
 {
 	//only send if there's any input to send!
+
+	//OutputMemoryBitStream inputPacket;
+	//inputPacket.Write(kInputCC);
+	//string a = "гоюл";
+	//inputPacket.Write(a);
+	//SendPacket(inputPacket, mServerAddress);
 	MoveList& moveList = InputManager::sInstance->GetMoveList();
 
+	
 	if (moveList.HasMoves())
 	{
 		OutputMemoryBitStream inputPacket;

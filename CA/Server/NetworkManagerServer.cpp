@@ -170,7 +170,7 @@ void NetworkManagerServer::WriteLastMoveTimestampIfDirty(OutputMemoryBitStream& 
 	inOutputStream.Write(isTimestampDirty);
 	if (isTimestampDirty)
 	{
-		//inOutputStream.Write(inClientProxy->GetUnprocessedMoveList().GetLastMoveTimestamp());
+		inOutputStream.Write(inClientProxy->GetUnprocessedMoveList().GetLastMoveTimestamp());
 		inClientProxy->SetIsLastMoveTimestampDirty(false);
 	}
 }
@@ -211,6 +211,9 @@ int NetworkManagerServer::GetNewNetworkId()
 
 void NetworkManagerServer::HandleInputPacket(ClientProxyPtr inClientProxy, InputMemoryBitStream& inInputStream)
 {
+	//string a;
+	//inInputStream.Read(a);
+	//printf("%s", a.c_str());
 	uint32_t moveCount = 0;
 	Move move;
 	inInputStream.Read(moveCount, 2);

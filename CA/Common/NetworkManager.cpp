@@ -16,7 +16,7 @@ bool NetworkManager::Init(uint16_t inPort)
 	mSocket = SocketUtil::CreateUDPSocket(INET);
 	SocketAddress ownAddress(INADDR_ANY, inPort);
 	mSocket->Bind(ownAddress);
-
+			
 	LOG("Initializing NetworkManager at port %d", inPort);
 
 	mBytesReceivedPerSecond = WeightedTimedMovingAverage(1.f);

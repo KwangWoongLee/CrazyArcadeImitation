@@ -10,6 +10,7 @@ public:
 	virtual int Run();
 
 	void HandleNewClient(ClientProxyPtr inClientProxy);
+	void SpawnPlayer(int inPlayerId);
 private:
 	Server();
 	bool	InitNetworkManager();

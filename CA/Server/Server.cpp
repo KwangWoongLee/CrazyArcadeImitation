@@ -1,5 +1,4 @@
-﻿
-#include <ServerPch.h>
+﻿#include <ServerPch.h>
 
 
 bool Server::StaticInit()
@@ -61,5 +60,15 @@ void Server::HandleNewClient(ClientProxyPtr inClientProxy)
 {
 
 	int playerId = inClientProxy->GetPlayerId();
+	SpawnPlayer(playerId);
+
+}
+
+void Server::SpawnPlayer(int inPlayerId)
+{
+	PlayerPtr cat = std::static_pointer_cast<Player>(GameObjectRegistry::sInstance->CreateGameObject('PLAY'));
+	cat->SetPlayerId(inPlayerId);
+	//gotta pick a better spawn location than this...
+	cat->SetLocation(Vector3(1.f - static_cast<float>(inPlayerId), 0.f, 0.f));
 
 }
