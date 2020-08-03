@@ -156,11 +156,10 @@ void NetworkManagerServer::SendStatePacketToClient(ClientProxyPtr inClientProxy)
 
 	WriteLastMoveTimestampIfDirty(statePacket, inClientProxy);
 
-	AddScoreBoardStateToPacket(statePacket);
+	//AddScoreBoardStateToPacket(statePacket);
 
 	inClientProxy->GetReplicationManagerServer().Write(statePacket);
 	SendPacket(statePacket, inClientProxy->GetSocketAddress());
-
 }
 
 void NetworkManagerServer::WriteLastMoveTimestampIfDirty(OutputMemoryBitStream& inOutputStream, ClientProxyPtr inClientProxy)
@@ -211,9 +210,6 @@ int NetworkManagerServer::GetNewNetworkId()
 
 void NetworkManagerServer::HandleInputPacket(ClientProxyPtr inClientProxy, InputMemoryBitStream& inInputStream)
 {
-	//string a;
-	//inInputStream.Read(a);
-	//printf("%s", a.c_str());
 	uint32_t moveCount = 0;
 	Move move;
 	inInputStream.Read(moveCount, 2);
@@ -264,7 +260,7 @@ void NetworkManagerServer::HandleClientDisconnected(ClientProxyPtr inClientProxy
 {
 	mPlayerIdToClientMap.erase(inClientProxy->GetPlayerId());
 	mAddressToClientMap.erase(inClientProxy->GetSocketAddress());
-	//static_cast<Server*> (Engine::sInstance.get())->HandleLostClient(inClientProxy);
+	static_cast<Server*> (Engine::sInstance.get())->HandleLostClient(inClientProxy);
 
 	//was that the last client? if so, bye!
 	if (mAddressToClientMap.empty())

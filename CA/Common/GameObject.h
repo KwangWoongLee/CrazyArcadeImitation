@@ -13,6 +13,8 @@ public:
 		GameObject();
 	virtual ~GameObject() {}
 
+	virtual	Player* GetAsCat() { return nullptr; }
+
 	virtual uint32_t GetAllStateMask()	const { return 0; }
 
 	//return whether to keep processing collision

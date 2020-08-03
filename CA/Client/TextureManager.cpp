@@ -9,7 +9,7 @@ void TextureManager::StaticInit()
 
 TextureManager::TextureManager()
 {
-	CacheTexture("Player", "./Client/Resources/bazziReadyCharacter.bmp");
+	CacheTexture("Player", "./Resources/bazziReadyCharacter.bmp");
 
 }
 

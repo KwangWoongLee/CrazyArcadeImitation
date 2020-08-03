@@ -1,6 +1,5 @@
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\common.pdb
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\common.idb
-c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\world.obj
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\udpsocket.obj
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\timing.obj
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\tcpsocket.obj
@@ -12,6 +11,8 @@ c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\servermath.obj
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\scoreboardmanager.obj
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\player.obj
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\networkmanager.obj
+c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\movelist.obj
+c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\move.obj
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\memorystream.obj
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\memorybitstream.obj
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\inputstate.obj
@@ -19,8 +20,7 @@ c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\gamepch.obj
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\gameobjectregistry.obj
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\gameobject.obj
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\engine.obj
-c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\movelist.obj
-c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\move.obj
+c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\world.obj
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\vcpkg.applocal.log
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\debug\common.lib
 c:\git\kwangwoonglee\crazyarcadeimitation\ca\common\debug\common.tlog\cl.command.1.tlog

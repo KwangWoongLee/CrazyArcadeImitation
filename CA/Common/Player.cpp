@@ -226,7 +226,7 @@ uint32_t Player::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtySt
 	if (inDirtyState & ECRS_Color)
 	{
 		inOutputStream.Write((bool)true);
-		//inOutputStream.Write(GetColor());
+		inOutputStream.Write(GetColor());
 
 		writtenState |= ECRS_Color;
 	}
