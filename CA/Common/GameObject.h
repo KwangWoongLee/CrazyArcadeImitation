@@ -30,6 +30,10 @@ public:
 	void	SetRotation(float inRotation);
 	float	GetRotation()					const { return mRotation; }
 
+	void	SetDirection(uint32_t inDirection);
+	void SetMove(bool inMove);
+	uint32_t	GetDirection()					const { return mDir; }
+
 	void	SetScale(float inScale) { mScale = inScale; }
 	float	GetScale()						const { return mScale; }
 
@@ -71,6 +75,9 @@ private:
 	bool											mDoesWantToDie;
 
 	int												mNetworkId;
+	uint32_t										mDir;
+
+	bool											mMove;
 
 };
 

@@ -74,6 +74,14 @@ public:
 		return *this;
 	}
 
+	bool operator==(const Vector3& inRight)
+	{
+		if (this->mX == inRight.mX && this->mY == inRight.mY && this->mZ == inRight.mZ)
+			return true;
+		else
+			return false;
+	}
+
 	float Length()
 	{
 		return sqrtf(mX * mX + mY * mY + mZ * mZ);

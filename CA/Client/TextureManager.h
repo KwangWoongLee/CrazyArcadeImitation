@@ -10,7 +10,8 @@ public:
 private:
 	TextureManager();
 
-	bool CacheTexture(string inName, const char* inFileName);
+	//bool CacheTexture(string inName, const char* inFileName);
+	bool CacheTexture(string inName, const char* inFileName, uint32_t inDistX, uint32_t inDistY);
 
 	unordered_map< string, TexturePtr >	mNameToTextureMap;
 };

@@ -13,6 +13,8 @@ Player::Player() :
 	mWallRestitution(0.1f),
 	mCatRestitution(0.1f),
 	mThrustDir(0.f),
+	mDir(0),
+	mMove(false),
 	mPlayerId(0),
 	mIsShooting(false),
 	mHealth(10)
@@ -25,13 +27,32 @@ void Player::ProcessInput(float inDeltaTime, const InputState& inInputState)
 	//process our input....
 
 	//turning...
-	float newRotation = GetRotation() + inInputState.GetDesiredHorizontalDelta() * mMaxRotationSpeed * inDeltaTime;
-	SetRotation(newRotation);
+	//float newRotation = GetRotation() + inInputState.GetDesiredHorizontalDelta() * mMaxRotationSpeed * inDeltaTime;
+	//SetRotation(newRotation);
+
+	//no moving
+	mMove = inInputState.GetDesiredMove();
 
 	//moving...
+	
+	mDir = inInputState.GetDesiredDir();
 	float inputForwardDelta = inInputState.GetDesiredVerticalDelta();
-	mThrustDir = inputForwardDelta;
+	float inputSideDelta = inInputState.GetDesiredHorizontalDelta();
 
+	switch (mDir)
+	{
+	case 0:
+	case 1:
+		mThrustDir = inputForwardDelta;
+		break;
+	case 2:
+	case 3:
+		mThrustDir = inputSideDelta;
+		break;
+	default:
+		break;
+	}
+	
 
 }
 
@@ -39,8 +60,23 @@ void Player::AdjustVelocityByThrust(float inDeltaTime)
 {
 	//just set the velocity based on the thrust direction -- no thrust will lead to 0 velocity
 	//simulating acceleration makes the client prediction a bit more complex
-	Vector3 forwardVector = GetForwardVector();
-	mVelocity = forwardVector * (mThrustDir * inDeltaTime * mMaxLinearSpeed);
+	Vector3 DirVector = GetForwardVector();
+	switch (mDir)
+	{
+	case 0:
+	case 1:
+		DirVector.mY = -1.f;
+		break;
+	case 2:
+	case 3:
+		DirVector.mX = 1.f;
+		break;
+	default:
+		break;
+	}
+	
+	mVelocity = DirVector * (mThrustDir * inDeltaTime * mMaxLinearSpeed);
+	
 }
 
 void Player::SimulateMovement(float inDeltaTime)
@@ -205,6 +241,11 @@ uint32_t Player::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtySt
 
 		inOutputStream.Write(GetRotation());
 
+		inOutputStream.Write(mDir);
+
+		inOutputStream.Write(mMove);
+
+
 		writtenState |= ECRS_Pose;
 	}
 	else
@@ -246,8 +287,6 @@ uint32_t Player::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtySt
 	{
 		inOutputStream.Write((bool)false);
 	}
-
-
 
 
 

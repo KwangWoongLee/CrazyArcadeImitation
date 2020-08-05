@@ -46,15 +46,19 @@ void InputManager::HandleInput(EInputAction inInputAction, int inKeyCode)
 	{
 	case 'a':
 		UpdateDesireFloatFromKey(inInputAction, mCurrentState.mDesiredLeftAmount);
+		mCurrentState.mDesiredDir = 2;
 		break;
 	case 'd':
 		UpdateDesireFloatFromKey(inInputAction, mCurrentState.mDesiredRightAmount);
+		mCurrentState.mDesiredDir = 3;
 		break;
 	case 'w':
 		UpdateDesireFloatFromKey(inInputAction, mCurrentState.mDesiredForwardAmount);
+		mCurrentState.mDesiredDir = 1;
 		break;
 	case 's':
 		UpdateDesireFloatFromKey(inInputAction, mCurrentState.mDesiredBackAmount);
+		mCurrentState.mDesiredDir = 0;
 		break;
 	case 'k':
 		UpdateDesireVariableFromKey(inInputAction, mCurrentState.mIsShooting);

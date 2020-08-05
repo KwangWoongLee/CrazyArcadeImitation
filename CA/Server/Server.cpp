@@ -68,18 +68,11 @@ void Server::HandleNewClient(ClientProxyPtr inClientProxy)
 
 void Server::SpawnPlayer(int inPlayerId)
 {
-	Vector3 mColor;
-	mColor.mX = 100.f;
-	mColor.mY = 127.f;
-	mColor.mZ = 146.f;
-
-
-
-	PlayerPtr cat = std::static_pointer_cast<Player>(GameObjectRegistry::sInstance->CreateGameObject('PLAY'));
-	cat->SetColor(mColor);
-	cat->SetPlayerId(inPlayerId);
+	PlayerPtr player = std::static_pointer_cast<Player>(GameObjectRegistry::sInstance->CreateGameObject('PLAY'));
+	player->SetVelocity(Vector3(1.f,1.f,0.f));
+	player->SetPlayerId(inPlayerId);
 	//gotta pick a better spawn location than this...
-	cat->SetLocation(Vector3(1.f - static_cast<float>(inPlayerId), 0.f, 0.f));
+	player->SetLocation(Vector3(1.f - static_cast<float>(inPlayerId), 0.f, 0.f));
 
 }
 

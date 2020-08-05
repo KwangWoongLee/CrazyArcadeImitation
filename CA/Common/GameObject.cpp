@@ -6,7 +6,7 @@ GameObject::GameObject() :
 	mDoesWantToDie(false),
 	mRotation(0.f),
 	mNetworkId(0),
-	//mColor(Colors::White),
+	mColor(Colors::White),
 	mScale(1.0f)
 {
 }
@@ -33,4 +33,14 @@ void GameObject::SetRotation(float inRotation)
 {
 	//should we normalize using fmodf?
 	mRotation = inRotation;
+}
+
+void GameObject::SetDirection(uint32_t inDirection)
+{
+	mDir = inDirection;
+}
+
+void GameObject::SetMove(bool inMove)
+{
+	mMove = inMove;
 }

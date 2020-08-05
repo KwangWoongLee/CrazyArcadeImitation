@@ -16,8 +16,10 @@ public:
 private:
 
 	Vector3											mOrigin;
-
 	TexturePtr										mTexture;
+	float											mfAnimationTime;
+	float											mfAnimationLimitTime;
+	int												mIdx;
 
 	//don't want circular reference...
 	GameObject* mGameObject;

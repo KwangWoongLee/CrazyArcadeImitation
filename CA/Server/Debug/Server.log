@@ -2,11 +2,18 @@
 C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Server\Server.vcxproj(207,5): warning MSB4011: "C:\Users\lgu48\AppData\Local\Microsoft\MSBuild\v4.0\Microsoft.Cpp.Win32.user.props"을(를) 다시 가져올 수 없습니다. "C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Server\Server.vcxproj(195,5)"에서 이미 가져왔습니다. 이는 빌드 작성 오류일 가능성이 높으며 이 후속 가져오기는 무시됩니다. 
 C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Server\Server.vcxproj(213,5): warning MSB4011: "C:\Users\lgu48\AppData\Local\Microsoft\MSBuild\v4.0\Microsoft.Cpp.Win32.user.props"을(를) 다시 가져올 수 없습니다. "C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Server\Server.vcxproj(195,5)"에서 이미 가져왔습니다. 이는 빌드 작성 오류일 가능성이 높으며 이 후속 가져오기는 무시됩니다. 
   Using triplet "x86-windows" from "C:\local\vcpkg-master\installed\x86-windows\"
+  ClientProxy.cpp
   NetworkManagerServer.cpp
+  PlayerServer.cpp
+  ReplicationManagerServer.cpp
+  Server.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Server\Server.cpp(16,2): warning C4996: 'freopen': This function or variable may be unsafe. Consider using freopen_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  ServerMain.cpp
+  ServerPch.cpp
 Common.lib(Timing.obj) : warning LNK4075: '/EDITANDCONTINUE'이(가) '/OPT:ICF' 사양으로 인해 무시됩니다.
   코드를 생성하고 있습니다.
-  2 of 1078 functions ( 0.2%) were compiled, the rest were copied from previous compilation.
+  14 of 1077 functions ( 1.3%) were compiled, the rest were copied from previous compilation.
     0 functions were new in current compilation
-    1 functions had inline decision re-evaluated but remain unchanged
+    3 functions had inline decision re-evaluated but remain unchanged
   코드를 생성했습니다.
   Server.vcxproj -> C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Debug\Server.exe

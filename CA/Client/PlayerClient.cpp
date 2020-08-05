@@ -8,6 +8,7 @@ PlayerClient::PlayerClient() :
 {
 	mSpriteComponent.reset(new SpriteComponent(this));
 	mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("Player"));
+	
 }
 
 
@@ -34,11 +35,13 @@ void PlayerClient::Read(InputMemoryBitStream& inInputStream)
 
 	float oldRotation = GetRotation();
 	Vector3 oldLocation = GetLocation();
-	//Vector3 oldVelocity = GetVelocity();
+	Vector3 oldVelocity = GetVelocity();
 
 	float replicatedRotation;
 	Vector3 replicatedLocation;
 	Vector3 replicatedVelocity;
+	uint32_t replicatedDirection;
+	bool	replicatedBoolMove;
 
 	inInputStream.Read(stateBit);
 	if (stateBit)
@@ -46,7 +49,7 @@ void PlayerClient::Read(InputMemoryBitStream& inInputStream)
 		inInputStream.Read(replicatedVelocity.mX);
 		inInputStream.Read(replicatedVelocity.mY);
 
-		//SetVelocity(replicatedVelocity);
+		SetVelocity(replicatedVelocity);
 
 		inInputStream.Read(replicatedLocation.mX);
 		inInputStream.Read(replicatedLocation.mY);
@@ -55,6 +58,32 @@ void PlayerClient::Read(InputMemoryBitStream& inInputStream)
 
 		inInputStream.Read(replicatedRotation);
 		SetRotation(replicatedRotation);
+
+		inInputStream.Read(replicatedDirection);
+		inInputStream.Read(replicatedBoolMove);
+		
+		switch (replicatedDirection)
+			{
+			case 0:
+				mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("PlayerDown"));
+				break;
+			case 1:
+				mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("PlayerUp"));
+				break;
+			case 2:
+				mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("PlayerLeft"));
+				break;
+			case 3:mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("PlayerRight"));
+				break;
+
+			default:
+				break;
+			}
+
+
+		SetMove(replicatedBoolMove);
+		SetDirection(replicatedDirection);
+		
 
 		readState |= ECRS_Pose;
 	}
@@ -68,6 +97,26 @@ void PlayerClient::Read(InputMemoryBitStream& inInputStream)
 	else
 	{
 		mThrustDir = 0.f;
+
+		switch (replicatedDirection)
+		{
+		case 0:
+			mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("PlayerIdleDown"));
+			break;
+		case 1:
+			mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("PlayerIdleUp"));
+			break;
+		case 2:
+			mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("PlayerIdleLeft"));
+			break;
+		case 3:
+			mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("PlayerIdleRight"));
+			break;
+
+		default:
+			break;
+		}
+
 	}
 
 	inInputStream.Read(stateBit);
@@ -95,4 +144,5 @@ void PlayerClient::Read(InputMemoryBitStream& inInputStream)
 			//HUD::sInstance->SetPlayerHealth(mHealth);
 		}
 	}
+
 }

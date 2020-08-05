@@ -14,6 +14,8 @@ public:
 	};
 
 
+
+
 	static	GameObject* StaticCreate() { return new Player(); }
 
 	virtual uint32_t GetAllStateMask()	const override { return ECRS_AllState; }
@@ -31,8 +33,8 @@ public:
 	void		SetPlayerId(uint32_t inPlayerId) { mPlayerId = inPlayerId; }
 	uint32_t	GetPlayerId()						const { return mPlayerId; }
 
-	//void			SetVelocity(const Vector3& inVelocity) { mVelocity = inVelocity; }
-	//const Vector3& GetVelocity()						const { return mVelocity; }
+	void			SetVelocity(const Vector3& inVelocity) { mVelocity = inVelocity; }
+	const Vector3& GetVelocity()						const { return mVelocity; }
 
 	virtual uint32_t	Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) const override;
 
@@ -64,6 +66,8 @@ protected:
 	float				mLastMoveTimestamp;
 
 	float				mThrustDir;
+	uint32_t			mDir;
+	bool				mMove;
 	int					mHealth;
 
 	bool				mIsShooting;
