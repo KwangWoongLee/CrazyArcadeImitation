@@ -56,6 +56,7 @@ class GameObject;
 #include "GameObject.h"
 #include "GameObjectRegistry.h"
 #include "Player.h"
+#include "Bomb.h"
 #include "World.h"
 #include "Timing.h"
 #include "StringUtils.h"

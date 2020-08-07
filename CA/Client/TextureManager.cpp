@@ -9,7 +9,6 @@ void TextureManager::StaticInit()
 
 TextureManager::TextureManager()
 {
-	//CacheTexture("Player", "./Resources/bazziReadyCharacter.bmp");
 	CacheTexture("PlayerDown", "./Resources/bazziDown.bmp",7,1);
 	CacheTexture("PlayerUp", "./Resources/bazziUp.bmp", 7, 1);
 	CacheTexture("PlayerLeft", "./Resources/bazziLeft.bmp", 7, 1);
@@ -18,7 +17,7 @@ TextureManager::TextureManager()
 	CacheTexture("PlayerIdleUp", "./Resources/bazziIdleUp.bmp", 1, 1);
 	CacheTexture("PlayerIdleLeft", "./Resources/bazziIdleLeft.bmp", 1, 1);
 	CacheTexture("PlayerIdleRight", "./Resources/bazziIdleRight.bmp", 1, 1);
-
+	CacheTexture("Bomb", "./Resources/bomb_already.bmp", 4, 1);
 }
 
 TexturePtr	TextureManager::GetTexture(const string& inTextureName)

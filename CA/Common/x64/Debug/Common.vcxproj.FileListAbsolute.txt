@@ -1,0 +1,2 @@
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\x64\Debug\Common.pdb
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\x64\Debug\Common.pdb

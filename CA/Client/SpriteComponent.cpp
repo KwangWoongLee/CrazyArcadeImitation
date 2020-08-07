@@ -24,7 +24,7 @@ void SpriteComponent::Draw(const SDL_Rect& inViewTransform)
 	if (mTexture)
 	{
 		mfAnimationTime += Timing::sInstance.GetDeltaTime();
-		if (mfAnimationTime > 0.05f)
+		if (mfAnimationTime > mGameObject->GetAnimationVelocity())
 		{
 			mfAnimationTime = 0.f;
 			mIdx += 1;

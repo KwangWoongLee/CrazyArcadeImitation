@@ -7,12 +7,9 @@ public:
 	virtual ~Engine();
 	static std::unique_ptr< Engine >	sInstance;
 
-
 	virtual int		Run();
-	void			SetShouldKeepRunning(bool inShouldKeepRunning) { mShouldKeepRunning = inShouldKeepRunning; }
-	virtual void	HandleEvent(SDL_Event* inEvent);
-
-
+	void			SetShouldKeepRunning( bool inShouldKeepRunning ) { mShouldKeepRunning = inShouldKeepRunning; }
+	virtual void	HandleEvent( SDL_Event* inEvent );
 
 protected:
 
@@ -23,9 +20,10 @@ protected:
 private:
 
 
+			
+			int		DoRunLoop();
 
-	int		DoRunLoop();
-	bool	mShouldKeepRunning;
+			bool	mShouldKeepRunning;
 
 
 

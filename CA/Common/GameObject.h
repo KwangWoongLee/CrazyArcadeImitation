@@ -18,7 +18,7 @@ public:
 	virtual uint32_t GetAllStateMask()	const { return 0; }
 
 	//return whether to keep processing collision
-	//virtual bool	HandleCollisionWithCat(RoboCat* inCat) { (void)inCat; return true; }
+	virtual bool	HandleCollisionWithPlayer(Player* inPlayer) { (void)inPlayer; return true; }
 
 	virtual void	Update();
 
@@ -56,6 +56,9 @@ public:
 	int			GetNetworkId()				const { return mNetworkId; }
 	void		SetNetworkId(int inNetworkId);
 
+	void		SetAnimationVelocity(float inAnimationVelocity);
+	const float GetAnimationVelocity()				const { return mAnimationVelocity; }
+
 	virtual uint32_t	Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) const { (void)inOutputStream; (void)inDirtyState; return 0; }
 	virtual void		Read(InputMemoryBitStream& inInputStream) { (void)inInputStream; }
 
@@ -79,6 +82,8 @@ private:
 
 	bool											mMove;
 
+protected:
+	float											mAnimationVelocity;
 };
 
 typedef shared_ptr< GameObject >	GameObjectPtr;

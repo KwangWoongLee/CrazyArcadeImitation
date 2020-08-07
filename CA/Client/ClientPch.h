@@ -13,7 +13,7 @@
 //
 #include <PlayerClient.h>
 //#include <MouseClient.h>
-//#include <YarnClient.h>
+#include <BombClient.h>
 //
 #include <HUD.h>
 //

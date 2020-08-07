@@ -53,7 +53,7 @@ void Player::ProcessInput(float inDeltaTime, const InputState& inInputState)
 		break;
 	}
 	
-
+	mIsShooting = inInputState.IsShooting();
 }
 
 void Player::AdjustVelocityByThrust(float inDeltaTime)
@@ -87,7 +87,44 @@ void Player::SimulateMovement(float inDeltaTime)
 
 	SetLocation(GetLocation() + mVelocity * inDeltaTime);
 
-	//ProcessCollisions();
+	ProcessCollisions();
+}
+
+void Player::ProcessCollisions()
+{
+	ProcessCollisionsWithScreenWalls();
+
+	float sourceRadius = GetCollisionRadius();
+	Vector3 sourceLocation = GetLocation();
+
+
+	for (auto goIt = World::sInstance->GetGameObjects().begin(), end = World::sInstance->GetGameObjects().end(); goIt != end; ++goIt)
+	{
+		GameObject* target = goIt->get();
+		if (target != this && !target->DoesWantToDie())
+		{
+			//simple collision test for spheres- are the radii summed less than the distance?
+			Vector3 targetLocation = target->GetLocation();
+			float targetRadius = target->GetCollisionRadius();
+
+			Vector3 delta = targetLocation - sourceLocation;
+			float distSq = delta.LengthSq2D();
+			float collisionDist = (sourceRadius + targetRadius);
+			if (distSq < (collisionDist * collisionDist))
+			{
+				//first, tell the other guy there was a collision with a cat, so it can do something...
+
+				if (target->HandleCollisionWithPlayer(this))
+				{
+					target->SetDoesWantToDie(true);
+				}
+			}
+		}
+	}
+}
+
+void Player::ProcessCollisionsWithScreenWalls()
+{
 }
 
 void Player::Update()
@@ -288,6 +325,17 @@ uint32_t Player::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtySt
 		inOutputStream.Write((bool)false);
 	}
 
+	if (inDirtyState & ECRS_Animation)
+	{
+		inOutputStream.Write((bool)true);
+		inOutputStream.Write(GetAnimationVelocity());
+
+		writtenState |= ECRS_Animation;
+	}
+	else
+	{
+		inOutputStream.Write((bool)false);
+	}
 
 
 

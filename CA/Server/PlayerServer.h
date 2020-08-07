@@ -14,4 +14,13 @@ public:
 
 protected:
 	PlayerServer();
+
+
+private:
+	void HandleShooting();
+
+
+	float		mTimeOfNextShot;
+	float		mTimeBetweenShots;
+
 };

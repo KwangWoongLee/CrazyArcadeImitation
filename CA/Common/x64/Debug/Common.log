@@ -1,0 +1,56 @@
+﻿  Using triplet "x64-windows" from "C:\local\vcpkg-master\installed\x64-windows\"
+  Bomb.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Engine.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  GameObject.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  GameObjectRegistry.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  GamePch.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  InputState.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Move.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  MoveList.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ServerMath.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  MemoryBitStream.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  MemoryStream.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  NetworkManager.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Player.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  ScoreBoardManager.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\ScoreBoardManager.cpp(33,2): warning C4996: '_snprintf': This function or variable may be unsafe. Consider using _snprintf_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\ScoreBoardManager.cpp(87,34): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SocketAddress.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SocketAddressFactory.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  SocketUtil.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  StringUtils.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  TCPSocket.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\TCPSocket.cpp(43,79): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\TCPSocket.cpp(54,77): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  Timing.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  컴파일하고 있습니다...
+  UDPSocket.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  World.cpp
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\MoveList.h(23,32): warning C4267: 'return': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\World.cpp(20,55): warning C4267: '인수': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\World.cpp(28,41): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+C:\git\KwangWoongLee\CrazyArcadeImitation\CA\Common\World.cpp(45,45): warning C4267: '초기화 중': 'size_t'에서 'int'(으)로 변환하면서 데이터가 손실될 수 있습니다.
+  코드를 생성하고 있습니다...
+  Common.vcxproj -> C:\git\KwangWoongLee\CrazyArcadeImitation\CA\x64\Debug\Common.lib

@@ -561,6 +561,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BombServer.h" />
     <ClInclude Include="ClientProxy.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="NetworkManagerServer.h" />
@@ -572,6 +573,7 @@
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BombServer.cpp" />
     <ClCompile Include="ClientProxy.cpp" />
     <ClCompile Include="NetworkManagerServer.cpp" />
     <ClCompile Include="PlayerServer.cpp" />

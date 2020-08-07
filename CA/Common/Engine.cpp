@@ -10,7 +10,6 @@ std::unique_ptr< Engine >	Engine::sInstance;
 Engine::Engine() :
 	mShouldKeepRunning(true)
 {
-
 	SocketUtil::StaticInit();
 
 	srand(static_cast<uint32_t>(time(nullptr)));
@@ -27,8 +26,6 @@ Engine::Engine() :
 
 Engine::~Engine()
 {
-
-
 	SocketUtil::CleanUp();
 
 	SDL_Quit();
@@ -83,5 +80,3 @@ void Engine::DoFrame()
 {
 	World::sInstance->Update();
 }
-
-

@@ -145,4 +145,13 @@ void PlayerClient::Read(InputMemoryBitStream& inInputStream)
 		}
 	}
 
+	inInputStream.Read(stateBit);
+	if (stateBit)
+	{
+		mAnimationVelocity = 0.f;
+		inInputStream.Read(mAnimationVelocity);
+		SetAnimationVelocity(mAnimationVelocity);
+		readState |= ECRS_Animation;
+	}
+
 }

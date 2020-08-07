@@ -1,4 +1,4 @@
-ï»¿#include <ServerPch.h>
+#include <ServerPch.h>
 
 
 bool Server::StaticInit()
@@ -11,11 +11,12 @@ bool Server::StaticInit()
 Server::Server()
 {
 #ifdef _DEBUG
-	//ì½˜ì†”ì°½ ìƒì„±í•¨ìˆ˜.
+	//ÄÜ¼ÖÃ¢ »ý¼ºÇÔ¼ö.
 	AllocConsole();
 	freopen("CONOUT$", "w", stdout);
 #endif  
 	GameObjectRegistry::sInstance->RegisterCreationFunction('PLAY', PlayerServer::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BOMB', BombServer::StaticCreate);
 
 	InitNetworkManager();
 
@@ -24,9 +25,7 @@ Server::Server()
 	NetworkManagerServer::sInstance->SetSimulatedLatency(latency);
 }
 
-void Server::SetupWorld()
-{
-}
+
 
 int Server::Run()
 {
@@ -44,12 +43,16 @@ bool Server::InitNetworkManager()
 	return NetworkManagerServer::StaticInit(port);
 }
 
+void Server::SetupWorld()
+{
+}
+
 void Server::DoFrame()
 {
 	NetworkManagerServer::sInstance->ProcessIncomingPackets();
 
 	NetworkManagerServer::sInstance->CheckForDisconnects();
-	
+
 	Engine::DoFrame();
 
 	NetworkManagerServer::sInstance->SendOutgoingPackets();
@@ -69,8 +72,9 @@ void Server::HandleNewClient(ClientProxyPtr inClientProxy)
 void Server::SpawnPlayer(int inPlayerId)
 {
 	PlayerPtr player = std::static_pointer_cast<Player>(GameObjectRegistry::sInstance->CreateGameObject('PLAY'));
-	player->SetVelocity(Vector3(1.f,1.f,0.f));
+	player->SetVelocity(Vector3(1.f, 1.f, 0.f));
 	player->SetPlayerId(inPlayerId);
+	player->SetAnimationVelocity(0.07f);
 	//gotta pick a better spawn location than this...
 	player->SetLocation(Vector3(1.f - static_cast<float>(inPlayerId), 0.f, 0.f));
 

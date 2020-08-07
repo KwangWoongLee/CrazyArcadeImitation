@@ -1,6 +1,8 @@
 #include <ServerPch.h>
 
-PlayerServer::PlayerServer()
+PlayerServer::PlayerServer()	:
+	mTimeOfNextShot(0.f),
+	mTimeBetweenShots(0.2f)
 {
 
 }
@@ -27,6 +29,7 @@ void PlayerServer::Update()
 		moveList.Clear();
 	}
 
+	HandleShooting();
 
 	if (!ServerMath::Is2DVectorEqual(oldLocation, GetLocation()) ||
 		oldRotation != GetRotation())
@@ -34,4 +37,19 @@ void PlayerServer::Update()
 		NetworkManagerServer::sInstance->SetStateDirty(GetNetworkId(), ECRS_Pose);
 	}
 
+}
+
+void PlayerServer::HandleShooting()
+{
+	float time = Timing::sInstance.GetFrameStartTime();
+	if (mIsShooting && Timing::sInstance.GetFrameStartTime() > mTimeOfNextShot)
+	{
+		//not exact, but okay
+		mTimeOfNextShot = time + mTimeBetweenShots;
+
+		//fire!
+		
+		BombPtr bomb = std::static_pointer_cast<Bomb>(GameObjectRegistry::sInstance->CreateGameObject('BOMB'));
+		bomb->InitFromPutter(this);
+	}
 }
