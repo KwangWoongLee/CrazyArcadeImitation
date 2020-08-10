@@ -31,6 +31,10 @@ public:
 	void ProcessCollisions();
 	void ProcessCollisionsWithScreenWalls();
 
+	void ProcessCollisionsWithBlocks();
+
+	float GetWallRestitution()		const { return mWallRestitution; }
+
 	void		SetPlayerId(uint32_t inPlayerId) { mPlayerId = inPlayerId; }
 	uint32_t	GetPlayerId()						const { return mPlayerId; }
 

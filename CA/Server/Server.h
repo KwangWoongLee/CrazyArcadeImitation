@@ -11,6 +11,7 @@ public:
 
 	void HandleNewClient(ClientProxyPtr inClientProxy);
 	void SpawnPlayer(int inPlayerId);
+	void ReadyBlockForMap();
 	void HandleLostClient(ClientProxyPtr inClientProxy);
 	PlayerPtr GetCatForPlayer(int inPlayerId);
 private:

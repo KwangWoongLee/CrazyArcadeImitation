@@ -22,19 +22,9 @@ void BombServer::Update()
 	}
 
 }
-//
-//bool BombServer::HandleCollisionWithCat(RoboCat* inCat)
-//{
-//	if (inCat->GetPlayerId() != GetPlayerId())
-//	{
-//		//kill yourself!
-//		SetDoesWantToDie(true);
-//
-//		static_cast<RoboCatServer*>(inCat)->TakeDamage(GetPlayerId());
-//
-//	}
-//
-//	return false;
-//}
+
+void BombServer::HandleCollisionWithPlayer(Player* inPlayer)
+{
+}
 
 

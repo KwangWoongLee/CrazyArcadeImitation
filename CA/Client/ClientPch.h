@@ -12,8 +12,8 @@
 #include <WindowManager.h>
 //
 #include <PlayerClient.h>
-//#include <MouseClient.h>
 #include <BombClient.h>
+#include <BlockClient.h>
 //
 #include <HUD.h>
 //

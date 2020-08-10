@@ -1,8 +1,8 @@
 #include "GamePch.h"
 
 //zoom hardcoded at 100...if we want to lock players on screen, this could be calculated from zoom
-const float HALF_WORLD_HEIGHT = 3.6f;
-const float HALF_WORLD_WIDTH = 6.4f;
+const float HALF_WORLD_HEIGHT = 4.0f;
+const float HALF_WORLD_WIDTH = 6.8f;
 
 
 Player::Player() :
@@ -114,9 +114,9 @@ void Player::ProcessCollisions()
 			{
 				//first, tell the other guy there was a collision with a cat, so it can do something...
 
-				if (target->HandleCollisionWithPlayer(this))
+				if (target->HasCollisionWithPlayer(this))
 				{
-					target->SetDoesWantToDie(true);
+					target->HandleCollisionWithPlayer(this);
 				}
 			}
 		}
@@ -125,6 +125,52 @@ void Player::ProcessCollisions()
 
 void Player::ProcessCollisionsWithScreenWalls()
 {
+	Vector3 location = GetLocation();
+	float x = location.mX;
+	float y = location.mY;
+
+	float vx = mVelocity.mX;
+	float vy = mVelocity.mY;
+
+	float radius = GetCollisionRadius();
+
+	//if the cat collides against a wall, the quick solution is to push it off
+	if ((y + radius) >= HALF_WORLD_HEIGHT && vy > 0)
+	{
+		mVelocity.mY = -vy * mWallRestitution;
+		location.mY = HALF_WORLD_HEIGHT - radius;
+		SetLocation(location);
+	}
+	else if (y <= (-HALF_WORLD_HEIGHT - radius) && vy < 0)
+	{
+		mVelocity.mY = -vy * mWallRestitution;
+		location.mY = -HALF_WORLD_HEIGHT - radius;
+		SetLocation(location);
+	}
+
+	if ((x + radius) >= HALF_WORLD_WIDTH && vx > 0)
+	{
+		mVelocity.mX = -vx * mWallRestitution;
+		location.mX = HALF_WORLD_WIDTH - radius;
+		SetLocation(location);
+	}
+	else if (x <= (-HALF_WORLD_WIDTH - radius) && vx < 0)
+	{
+		mVelocity.mX = -vx * mWallRestitution;
+		location.mX = -HALF_WORLD_WIDTH - radius;
+		SetLocation(location);
+	}
+}
+
+void Player::ProcessCollisionsWithBlocks()
+{
+	Vector3 location = GetLocation();
+	float x = location.mX;
+	float y = location.mY;
+
+	float vx = mVelocity.mX;
+	float vy = mVelocity.mY;
+
 }
 
 void Player::Update()

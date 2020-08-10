@@ -31,7 +31,7 @@ Client::Client()
 {
 	GameObjectRegistry::sInstance->RegisterCreationFunction('PLAY', PlayerClient::StaticCreate);
 	GameObjectRegistry::sInstance->RegisterCreationFunction('BOMB', BombClient::StaticCreate);
-
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BLCK', BlockClient::StaticCreate);
 
 	//string destination = StringUtils::GetCommandLineArg(1);
 	//string name = StringUtils::GetCommandLineArg(2);

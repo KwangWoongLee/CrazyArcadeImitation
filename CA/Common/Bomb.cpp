@@ -73,13 +73,16 @@ uint32_t Bomb::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyStat
 
 
 
-bool Bomb::HandleCollisionWithPlayer(Player* inPlayer)
+bool Bomb::HasCollisionWithPlayer(Player* inPlayer)
 {
 	(void)inPlayer;
 
-	//you hit a cat, so look like you hit a cat
+	return true;
+}
 
-	return false;
+void Bomb::HandleCollisionWithPlayer(Player* inPlayer)
+{
+	
 }
 
 

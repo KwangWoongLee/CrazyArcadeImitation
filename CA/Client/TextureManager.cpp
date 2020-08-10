@@ -18,6 +18,7 @@ TextureManager::TextureManager()
 	CacheTexture("PlayerIdleLeft", "./Resources/bazziIdleLeft.bmp", 1, 1);
 	CacheTexture("PlayerIdleRight", "./Resources/bazziIdleRight.bmp", 1, 1);
 	CacheTexture("Bomb", "./Resources/bomb_already.bmp", 4, 1);
+	CacheTexture("Block", "./Resources/tree.bmp", 1, 1);
 }
 
 TexturePtr	TextureManager::GetTexture(const string& inTextureName)

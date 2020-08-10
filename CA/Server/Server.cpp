@@ -17,7 +17,7 @@ Server::Server()
 #endif  
 	GameObjectRegistry::sInstance->RegisterCreationFunction('PLAY', PlayerServer::StaticCreate);
 	GameObjectRegistry::sInstance->RegisterCreationFunction('BOMB', BombServer::StaticCreate);
-
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BLCK', BlockServer::StaticCreate);
 	InitNetworkManager();
 
 	float latency = 0.0f;
@@ -45,6 +45,7 @@ bool Server::InitNetworkManager()
 
 void Server::SetupWorld()
 {
+	ReadyBlockForMap();
 }
 
 void Server::DoFrame()
@@ -77,6 +78,21 @@ void Server::SpawnPlayer(int inPlayerId)
 	player->SetAnimationVelocity(0.07f);
 	//gotta pick a better spawn location than this...
 	player->SetLocation(Vector3(1.f - static_cast<float>(inPlayerId), 0.f, 0.f));
+
+}
+
+void Server::ReadyBlockForMap()
+{
+	//일단 하드코딩으로 맵을 만든다.
+	BlockPtr block = std::static_pointer_cast<Block>(GameObjectRegistry::sInstance->CreateGameObject('BLCK'));
+	block->SetAnimationVelocity(1.f);
+	//gotta pick a better spawn location than this...
+	block->SetLocation(Vector3(1.f, 0.f, 0.f));
+
+	block = std::static_pointer_cast<Block>(GameObjectRegistry::sInstance->CreateGameObject('BLCK'));
+	block->SetAnimationVelocity(1.f);
+	//gotta pick a better spawn location than this...
+	block->SetLocation(Vector3(0.1f, 0.f, 0.f));
 
 }
 

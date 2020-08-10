@@ -555,6 +555,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClInclude Include="BlockClient.h" />
     <ClInclude Include="BombClient.h" />
     <ClInclude Include="Client.h" />
     <ClInclude Include="ClientPch.h" />
@@ -574,6 +575,7 @@
     <ClInclude Include="WindowManager.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BlockClient.cpp" />
     <ClCompile Include="BombClient.cpp" />
     <ClCompile Include="Client.cpp" />
     <ClCompile Include="ClientMain.cpp" />
