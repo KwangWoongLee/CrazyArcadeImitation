@@ -84,6 +84,18 @@
     <ClCompile Include="MoveList.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
+    <ClCompile Include="DeliveryNotificationManager.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="InFlightPacket.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="AckRange.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="Boom.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
     <ClCompile Include="Bomb.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
@@ -171,6 +183,21 @@
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="MoveList.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="DeliveryNotificationManager.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="InFlightPacket.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="AckRange.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="TransmissionData.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="Boom.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
     <ClInclude Include="Bomb.h">

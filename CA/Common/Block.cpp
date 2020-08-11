@@ -1,6 +1,9 @@
+
 #include "GamePch.h"
 
-Block::Block()
+Block::Block()	:
+	mWidth(40),
+	mHeight(60)
 {
 	SetAnimationVelocity(1.f);
 }
@@ -59,37 +62,20 @@ uint32_t Block::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtySta
 
 
 
-bool Block::HandleCollisionWithBomb()
-{
-	return false;
-}
-
 bool Block::HasCollisionWithPlayer(Player* inPlayer)
 {
-	return true;
+	(void)inPlayer;
+
+	return false;
 }
 
 void Block::HandleCollisionWithPlayer(Player* inPlayer)
 {
-	Vector3 location = inPlayer->GetLocation();
-	Vector3 velocity = inPlayer->GetVelocity();
-
-	if (location.mX > this->GetLocation().mX && velocity.mX <= 0)
-	{
-		location.mX = location.mX;
-		inPlayer->SetLocation(location);
-	}
-		
-	else if (location.mX <= this->GetLocation().mX && velocity.mX > 0)
-	{
-		location.mX = location.mX ;
-		inPlayer->SetLocation(location);
-	}
+	(void)inPlayer;
 }
 
 
 void Block::Update()
 {
 	SetLocation(GetLocation());
-
 }

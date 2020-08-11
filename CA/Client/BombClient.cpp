@@ -4,6 +4,8 @@ BombClient::BombClient()
 {
 	mSpriteComponent.reset(new SpriteComponent(this));
 	mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("Bomb"));
+	mWidth = TextureManager::sInstance->GetTexture("Bomb")->GetWidth();
+	mHeight = TextureManager::sInstance->GetTexture("Bomb")->GetHeight();
 }
 
 

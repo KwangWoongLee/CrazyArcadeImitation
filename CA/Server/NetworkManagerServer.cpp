@@ -154,11 +154,13 @@ void NetworkManagerServer::SendStatePacketToClient(ClientProxyPtr inClientProxy)
 	//it's state!
 	statePacket.Write(kStateCC);
 
+	InFlightPacket* ifp = inClientProxy->GetDeliveryNotificationManager().WriteState(statePacket);
+
 	WriteLastMoveTimestampIfDirty(statePacket, inClientProxy);
 
 	//AddScoreBoardStateToPacket(statePacket);
-
-	inClientProxy->GetReplicationManagerServer().Write(statePacket);
+	ReplicationManagerTransmissionData* rmtd = new ReplicationManagerTransmissionData(&inClientProxy->GetReplicationManagerServer());
+	inClientProxy->GetReplicationManagerServer().Write(statePacket,rmtd);
 	SendPacket(statePacket, inClientProxy->GetSocketAddress());
 }
 

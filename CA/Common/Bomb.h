@@ -8,7 +8,7 @@ public:
 		EBRS_Pose = 1 << 0,
 		EBRS_Color = 1 << 1,
 		EBRS_PlayerId = 1 << 2,
-		EBRS_Animation = 1 << 3 ,
+		EBRS_Animation = 1 << 3,
 
 		EBRS_AllState = EBRS_Pose | EBRS_Color | EBRS_PlayerId | EBRS_Animation
 	};
@@ -22,6 +22,8 @@ public:
 
 	virtual void Update()	override;
 
+	void		SetFirstBool(bool inFirstBool) { mFirstBool = inFirstBool; }
+	bool	GetFirstBool()						const { return mFirstBool; }
 
 
 	void		SetPlayerId(uint32_t inPlayerId) { mPlayerId = inPlayerId; }
@@ -34,15 +36,17 @@ public:
 
 	virtual uint32_t	Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) const override;
 
-	virtual bool HasCollisionWithPlayer (Player* inPlayer) override;
+	virtual bool HasCollisionWithPlayer(Player* inPlayer) override;
 
-	virtual void HandleCollisionWithPlayer(Player* inPlayer);
+	virtual void HandleCollisionWithPlayer(Player* inPlayer) override;
 protected:
 	Bomb();
-	
+
 	float				mLifeTime;
 	uint32_t			mPlayerId;
-
+	int					mWidth;
+	int					mHeight;
+	bool				mFirstBool;
 
 
 

@@ -28,14 +28,15 @@ public:
 
 	virtual uint32_t	Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyState) const override;
 
-	virtual bool HandleCollisionWithBomb();
-
 	virtual bool HasCollisionWithPlayer(Player* inPlayer) override;
 
-	void HandleCollisionWithPlayer(Player* inPlayer);
+	virtual void HandleCollisionWithPlayer(Player* inPlayer) override;
 
 protected:
 	Block();
+
+	int					mWidth;
+	int					mHeight;
 
 
 

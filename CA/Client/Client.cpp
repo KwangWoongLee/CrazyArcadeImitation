@@ -31,12 +31,17 @@ Client::Client()
 {
 	GameObjectRegistry::sInstance->RegisterCreationFunction('PLAY', PlayerClient::StaticCreate);
 	GameObjectRegistry::sInstance->RegisterCreationFunction('BOMB', BombClient::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BOOM', BoomClient::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BMLT', BoomClient::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BMRT', BoomClient::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BMUP', BoomClient::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BMDW', BoomClient::StaticCreate);
 	GameObjectRegistry::sInstance->RegisterCreationFunction('BLCK', BlockClient::StaticCreate);
 
-	//string destination = StringUtils::GetCommandLineArg(1);
-	//string name = StringUtils::GetCommandLineArg(2);
-	string destination = "127.0.0.1:45000";
-	string name = "A";
+	string destination = StringUtils::GetCommandLineArg(1);
+	string name = StringUtils::GetCommandLineArg(2);
+	//string destination = "127.0.0.1:45000";
+	//string name = "A";
 
 	SocketAddressPtr serverAddress = SocketAddressFactory::CreateIPv4FromString(destination);
 

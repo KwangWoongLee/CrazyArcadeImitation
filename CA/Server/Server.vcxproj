@@ -563,11 +563,13 @@
   <ItemGroup>
     <ClInclude Include="BlockServer.h" />
     <ClInclude Include="BombServer.h" />
+    <ClInclude Include="BoomServer.h" />
     <ClInclude Include="ClientProxy.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="NetworkManagerServer.h" />
     <ClInclude Include="PlayerServer.h" />
     <ClInclude Include="ReplicationManagerServer.h" />
+    <ClInclude Include="ReplicationManagerTranssmissionData.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Server.h" />
     <ClInclude Include="ServerPch.h" />
@@ -576,10 +578,12 @@
   <ItemGroup>
     <ClCompile Include="BlockServer.cpp" />
     <ClCompile Include="BombServer.cpp" />
+    <ClCompile Include="BoomServer.cpp" />
     <ClCompile Include="ClientProxy.cpp" />
     <ClCompile Include="NetworkManagerServer.cpp" />
     <ClCompile Include="PlayerServer.cpp" />
     <ClCompile Include="ReplicationManagerServer.cpp" />
+    <ClCompile Include="ReplicationManagerTranssmissionData.cpp" />
     <ClCompile Include="Server.cpp" />
     <ClCompile Include="ServerMain.cpp" />
     <ClCompile Include="ServerPch.cpp" />

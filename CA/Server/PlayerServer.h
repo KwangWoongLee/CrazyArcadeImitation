@@ -15,9 +15,12 @@ public:
 protected:
 	PlayerServer();
 
+	void HandleDying();
+
 
 private:
 	void HandleShooting();
+	void HandleCountDown();
 
 
 	float		mTimeOfNextShot;

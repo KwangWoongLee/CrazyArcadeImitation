@@ -10,13 +10,13 @@ bool Server::StaticInit()
 
 Server::Server()
 {
-#ifdef _DEBUG
-	//콘솔창 생성함수.
-	AllocConsole();
-	freopen("CONOUT$", "w", stdout);
-#endif  
 	GameObjectRegistry::sInstance->RegisterCreationFunction('PLAY', PlayerServer::StaticCreate);
 	GameObjectRegistry::sInstance->RegisterCreationFunction('BOMB', BombServer::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BOOM', BoomServer::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BMLT', BoomServer::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BMRT', BoomServer::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BMDW', BoomServer::StaticCreate);
+	GameObjectRegistry::sInstance->RegisterCreationFunction('BMUP', BoomServer::StaticCreate);
 	GameObjectRegistry::sInstance->RegisterCreationFunction('BLCK', BlockServer::StaticCreate);
 	InitNetworkManager();
 
@@ -36,8 +36,8 @@ int Server::Run()
 
 bool Server::InitNetworkManager()
 {
-	//string portString = StringUtils::GetCommandLineArg( 1 );
-	string portString = "45000";
+	string portString = StringUtils::GetCommandLineArg( 1 );
+	//string portString = "45000";
 	uint16_t port = stoi(portString);
 
 	return NetworkManagerServer::StaticInit(port);
@@ -120,8 +120,8 @@ PlayerPtr Server::GetCatForPlayer(int inPlayerId)
 	for (int i = 0, c = gameObjects.size(); i < c; ++i)
 	{
 		GameObjectPtr go = gameObjects[i];
-		Player* cat = go->GetAsCat();
-		if (cat && cat->GetPlayerId() == inPlayerId)
+		Player* player = go->GetAsCat();
+		if (player && player->GetPlayerId() == inPlayerId)
 		{
 			return std::static_pointer_cast<Player>(go);
 		}

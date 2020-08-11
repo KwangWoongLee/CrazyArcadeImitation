@@ -4,7 +4,9 @@ public:
 	static GameObjectPtr	StaticCreate() { return NetworkManagerServer::sInstance->RegisterAndReturn(new BombServer()); }
 	void HandleDying() override;
 
-	virtual void	HandleCollisionWithPlayer(Player* inPlayer) override;
+	virtual bool		HasCollisionWithPlayer(Player* inPlayer) override;
+
+	virtual void		HandleCollisionWithPlayer(Player* inPlayer) override;
 
 	virtual void Update() override;
 

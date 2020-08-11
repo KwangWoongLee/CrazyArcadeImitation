@@ -4,6 +4,8 @@ BlockClient::BlockClient()
 {
 	mSpriteComponent.reset(new SpriteComponent(this));
 	mSpriteComponent->SetTexture(TextureManager::sInstance->GetTexture("Block"));
+	mWidth = TextureManager::sInstance->GetTexture("Block")->GetWidth();
+	mHeight = TextureManager::sInstance->GetTexture("Block")->GetHeight();
 }
 
 
@@ -36,5 +38,15 @@ void BlockClient::Read(InputMemoryBitStream& inInputStream)
 		inInputStream.Read(mAnimationVelocity);
 		SetAnimationVelocity(mAnimationVelocity);
 	}
+
+}
+
+bool BlockClient::HasCollisionWithPlayer(Player* inPlayer)
+{
+	return false;
+}
+
+void BlockClient::HandleCollisionWithPlayer(Player* inPlayer)
+{
 
 }

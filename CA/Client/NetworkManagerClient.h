@@ -40,7 +40,7 @@ private:
 	void	DestroyGameObjectsInMap(const IntToGameObjectMap& inObjectsToDestroy);
 
 
-
+	DeliveryNotificationManager	mDeliveryNotificationManager;
 	ReplicationManagerClient	mReplicationManagerClient;
 
 	SocketAddress		mServerAddress;

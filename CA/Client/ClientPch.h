@@ -13,6 +13,7 @@
 //
 #include <PlayerClient.h>
 #include <BombClient.h>
+#include <BoomClient.h>
 #include <BlockClient.h>
 //
 #include <HUD.h>

@@ -51,6 +51,12 @@
     <ClInclude Include="BlockServer.h">
       <Filter>헤더 파일</Filter>
     </ClInclude>
+    <ClInclude Include="ReplicationManagerTranssmissionData.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
+    <ClInclude Include="BoomServer.h">
+      <Filter>헤더 파일</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="ServerMain.cpp">
@@ -78,6 +84,12 @@
       <Filter>소스 파일</Filter>
     </ClCompile>
     <ClCompile Include="BlockServer.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="ReplicationManagerTranssmissionData.cpp">
+      <Filter>소스 파일</Filter>
+    </ClCompile>
+    <ClCompile Include="BoomServer.cpp">
       <Filter>소스 파일</Filter>
     </ClCompile>
   </ItemGroup>

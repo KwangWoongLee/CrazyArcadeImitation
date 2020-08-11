@@ -10,6 +10,7 @@ namespace
 
 NetworkManagerClient::NetworkManagerClient() :
 	mState(NCS_Uninitialized),
+	mDeliveryNotificationManager(true, false),
 	mLastRoundTripTime(0.f)
 {
 }
@@ -44,7 +45,10 @@ void NetworkManagerClient::ProcessPacket(InputMemoryBitStream& inInputStream, co
 		HandleWelcomePacket(inInputStream);
 		break;
 	case kStateCC:
-		HandleStatePacket(inInputStream);
+		if (mDeliveryNotificationManager.ReadAndProcessState(inInputStream))
+		{
+			HandleStatePacket(inInputStream);
+		}
 		break;
 	}
 }
@@ -215,14 +219,23 @@ void NetworkManagerClient::SendInputPacket()
 
 		//we only want to send the last three moves
 		int moveCount = moveList.GetMoveCount();
-		int startIndex = moveCount > 3 ? moveCount - 3 - 1 : 0;
-		inputPacket.Write(moveCount - startIndex, 2);
-		for (int i = startIndex; i < moveCount; ++i)
+		int firstMoveIndex = moveCount - 3;
+		if (firstMoveIndex < 3)
 		{
-			moveList[i].Write(inputPacket);
+			firstMoveIndex = 0;
+		}
+		auto move = moveList.begin() + firstMoveIndex;
+
+		//only need two bits to write the move count, because it's 0, 1, 2 or 3
+		inputPacket.Write(moveCount - firstMoveIndex, 2);
+
+		for (; firstMoveIndex < moveCount; ++firstMoveIndex, ++move)
+		{
+			///would be nice to optimize the time stamp...
+			move->Write(inputPacket);
 		}
 
 		SendPacket(inputPacket, mServerAddress);
-		moveList.Clear();
+
 	}
 }

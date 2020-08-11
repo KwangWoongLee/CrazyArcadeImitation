@@ -46,6 +46,10 @@ class GameObject;
 #include "MemoryStream.h"
 #include "MemoryBitStream.h"
 
+#include "TransmissionData.h"
+#include "InFlightPacket.h"
+#include "AckRange.h"
+#include "DeliveryNotificationManager.h"
 
 #include "InputAction.h"
 #include "InputState.h"
@@ -56,10 +60,14 @@ class GameObject;
 #include "GameObject.h"
 #include "GameObjectRegistry.h"
 #include "Player.h"
-#include "Bomb.h"
-#include "Block.h"
 #include "World.h"
 #include "Timing.h"
+
+#include "Block.h"
+#include "Bomb.h"
+#include "Boom.h"
+
+
 #include "StringUtils.h"
 #include "ScoreBoardManager.h"
 

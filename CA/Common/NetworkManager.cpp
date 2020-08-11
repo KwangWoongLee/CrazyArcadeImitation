@@ -19,8 +19,8 @@ bool NetworkManager::Init(uint16_t inPort)
 			
 	LOG("Initializing NetworkManager at port %d", inPort);
 
-	mBytesReceivedPerSecond = WeightedTimedMovingAverage(1.f);
-	mBytesSentPerSecond = WeightedTimedMovingAverage(1.f);
+	mBytesReceivedPerSecond = WeightedTimedMovingAverage(0.f);
+	mBytesSentPerSecond = WeightedTimedMovingAverage(0.f);
 
 	//did we bind okay?
 	if (mSocket == nullptr)

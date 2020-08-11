@@ -2,7 +2,9 @@
 
 Bomb::Bomb() :
 	mPlayerId(0),
-	mLifeTime(1.f)
+	mLifeTime(1.f),
+	mWidth(37),
+	mHeight(50)
 {
 }
 
@@ -71,18 +73,17 @@ uint32_t Bomb::Write(OutputMemoryBitStream& inOutputStream, uint32_t inDirtyStat
 	return writtenState;
 }
 
-
-
 bool Bomb::HasCollisionWithPlayer(Player* inPlayer)
 {
 	(void)inPlayer;
 
-	return true;
+	return false;
 }
+
 
 void Bomb::HandleCollisionWithPlayer(Player* inPlayer)
 {
-	
+	(void)inPlayer;
 }
 
 
@@ -91,9 +92,8 @@ void Bomb::InitFromPutter(Player* inPutter)
 	SetColor(inPutter->GetColor());
 	SetPlayerId(inPutter->GetPlayerId());
 	SetAnimationVelocity(0.2f);
-	Vector3 forward = inPutter->GetForwardVector();
 	SetLocation(inPutter->GetLocation() /* + forward * 0.55f */);
-
+	SetFirstBool(true);
 }
 
 void Bomb::Update()
@@ -106,3 +106,7 @@ void Bomb::Update()
 
 	//we'll let the cats handle the collisions
 }
+
+
+
+

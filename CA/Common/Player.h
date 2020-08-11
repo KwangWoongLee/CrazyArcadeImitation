@@ -10,8 +10,10 @@ public:
 		ECRS_PlayerId = 1 << 2,
 		ECRS_Health = 1 << 3,
 		ECRS_Animation = 1<< 4,
+		ECRS_Live = 1 << 5,
 
-		ECRS_AllState = ECRS_Pose | ECRS_Color | ECRS_PlayerId | ECRS_Health | ECRS_Animation
+
+		ECRS_AllState = ECRS_Pose | ECRS_Color | ECRS_PlayerId | ECRS_Health | ECRS_Animation | ECRS_Live
 	};
 
 
@@ -28,12 +30,24 @@ public:
 	void ProcessInput(float inDeltaTime, const InputState& inInputState);
 	void SimulateMovement(float inDeltaTime);
 
+	void SetTimeToDie(float		inTimeToDie) { mTimeToDie = inTimeToDie; }
+	bool	GetTimeToDie()		const { return mTimeToDie; }
+
+	void SetCountDown(bool inCountDown) { mbCountDown = inCountDown; }
+	bool	GetCountDown()		const { return mbCountDown; }
+
 	void ProcessCollisions();
 	void ProcessCollisionsWithScreenWalls();
 
 	void ProcessCollisionsWithBlocks();
 
 	float GetWallRestitution()		const { return mWallRestitution; }
+
+	void		SetWidth(int pWidth) { mWidth = pWidth; }
+	uint32_t	GetWidth()						const { return mWidth; }
+
+	void		SetHeight(int pHeight) { mHeight = pHeight; }
+	uint32_t	GetHeight()						const { return mHeight; }
 
 	void		SetPlayerId(uint32_t inPlayerId) { mPlayerId = inPlayerId; }
 	uint32_t	GetPlayerId()						const { return mPlayerId; }
@@ -57,7 +71,7 @@ private:
 
 	Vector3				mVelocity;
 
-
+	
 	float				mMaxLinearSpeed;
 	float				mMaxRotationSpeed;
 
@@ -76,6 +90,10 @@ protected:
 	uint32_t			mDir;
 	bool				mMove;
 	int					mHealth;
+	int					mWidth;
+	int					mHeight;
+	bool				mbCountDown;
+	float				mTimeToDie;
 
 	//float				mAnimationVelocity;
 

@@ -9,6 +9,7 @@ void TextureManager::StaticInit()
 
 TextureManager::TextureManager()
 {
+	CacheTexture("CountDownBazzi", "./Resources/bazziBubble.bmp", 16, 1);
 	CacheTexture("PlayerDown", "./Resources/bazziDown.bmp",7,1);
 	CacheTexture("PlayerUp", "./Resources/bazziUp.bmp", 7, 1);
 	CacheTexture("PlayerLeft", "./Resources/bazziLeft.bmp", 7, 1);
@@ -18,6 +19,11 @@ TextureManager::TextureManager()
 	CacheTexture("PlayerIdleLeft", "./Resources/bazziIdleLeft.bmp", 1, 1);
 	CacheTexture("PlayerIdleRight", "./Resources/bazziIdleRight.bmp", 1, 1);
 	CacheTexture("Bomb", "./Resources/bomb_already.bmp", 4, 1);
+	CacheTexture("BoomCenter", "./Resources/boom_center.bmp", 14, 1);
+	CacheTexture("BoomUp", "./Resources/boom_up.bmp", 9, 1);
+	CacheTexture("BoomDown", "./Resources/boom_down.bmp", 9, 1);
+	CacheTexture("BoomLeft", "./Resources/boom_left.bmp", 9, 1);
+	CacheTexture("BoomRight", "./Resources/boom_right.bmp", 9, 1);
 	CacheTexture("Block", "./Resources/tree.bmp", 1, 1);
 }
 

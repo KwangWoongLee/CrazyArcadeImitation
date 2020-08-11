@@ -54,7 +54,8 @@ void SpriteComponent::Draw(const SDL_Rect& inViewTransform)
 		dstRect.w = static_cast<int>(mTexture->GetWidth() * objScale) / mTexture->GetDistX();
 		dstRect.x = static_cast<int>(objLocation.mX * inViewTransform.w + inViewTransform.x - dstRect.w / 2);
 		dstRect.y = static_cast<int>(objLocation.mY * inViewTransform.h + inViewTransform.y - dstRect.h / 2);
-
+		
+		//LOG("%f,%f,%f,%f, %d , %d , %d , %d", objLocation.mX, objLocation.mY, objLocation.mX * inViewTransform.w, objLocation.mY * inViewTransform.h, dstRect.w, dstRect.h, dstRect.x, dstRect.y);
 		SDL_RenderCopy(GraphicsDriver::sInstance->GetRenderer(), mTexture->GetData(), &rcSprite, &dstRect);
 	}
 }

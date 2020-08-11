@@ -33,6 +33,10 @@ public:
 	void	SetRotation(float inRotation);
 	float	GetRotation()					const { return mRotation; }
 
+
+	void		SetBoolInBubble(bool inBool) { mInBubble = inBool; }
+	bool		GetBoolInBubble()			const { return mInBubble; }
+
 	void	SetDirection(uint32_t inDirection);
 	void SetMove(bool inMove);
 	uint32_t	GetDirection()					const { return mDir; }
@@ -84,6 +88,7 @@ private:
 	uint32_t										mDir;
 
 	bool											mMove;
+	bool											mInBubble;
 
 protected:
 	float											mAnimationVelocity;
